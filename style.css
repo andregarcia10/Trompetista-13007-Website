@@ -3031,3 +3031,14 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone: ocultar "voltar ao topo" enquanto o aviso de conteúdo real estiver visível */
+@media(max-width:700px){
+  .media-authenticity-notice.is-visible ~ .back-to-top{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(10px) !important;
+  }
+}
+
