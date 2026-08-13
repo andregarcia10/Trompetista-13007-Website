@@ -3177,3 +3177,42 @@ textarea:focus-visible{
   }
 }
 
+
+/* Transparência reforçada — página inicial e aviso visual — desktop + mobile */
+
+/* 1. Barra superior com frases em movimento */
+.hero__video-marquee{
+  background:rgba(244,227,200,.14) !important;
+  border-color:rgba(244,227,200,.38) !important;
+  backdrop-filter:blur(2px) !important;
+  -webkit-backdrop-filter:blur(2px) !important;
+}
+
+/* 2. Botão "Quero apoiar" sobre o vídeo */
+.hero--video .hero__buttons .button--primary{
+  background:rgba(220,20,19,.12) !important;
+  border-color:rgba(244,227,200,.38) !important;
+  backdrop-filter:blur(1.5px) !important;
+  -webkit-backdrop-filter:blur(1.5px) !important;
+}
+
+.hero--video .hero__buttons .button--primary:hover,
+.hero--video .hero__buttons .button--primary:focus-visible{
+  background:rgba(220,20,19,.34) !important;
+}
+
+/* 3. Aviso "Conteúdo visual 100% real..." */
+.media-authenticity-notice{
+  background:rgba(244,227,200,.16) !important;
+  border-color:rgba(27,14,13,.58) !important;
+  border-left-color:rgba(255,166,64,.78) !important;
+  backdrop-filter:blur(4px) !important;
+  -webkit-backdrop-filter:blur(4px) !important;
+}
+
+/* Mantém a leitura do aviso mesmo com o fundo muito mais transparente */
+.media-authenticity-notice,
+.media-authenticity-notice strong{
+  text-shadow:0 1px 2px rgba(244,227,200,.55);
+}
+
