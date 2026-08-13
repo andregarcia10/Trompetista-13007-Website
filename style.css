@@ -3216,3 +3216,35 @@ textarea:focus-visible{
   text-shadow:0 1px 2px rgba(244,227,200,.55);
 }
 
+
+/* Legibilidade dos elementos transparentes — alinhada à IDV oficial */
+.hero__video-marquee{
+  color:var(--cream) !important;
+  text-shadow:0 2px 8px rgba(27,14,13,.82) !important;
+}
+
+.hero__video-marquee > i{
+  color:var(--trumpet) !important;
+  text-shadow:0 2px 8px rgba(27,14,13,.78) !important;
+}
+
+.hero__video-marquee .eyebrow__track span{
+  color:var(--cream) !important;
+  text-shadow:0 2px 8px rgba(27,14,13,.82) !important;
+}
+
+.media-authenticity-notice{
+  color:var(--cream) !important;
+  text-shadow:0 2px 7px rgba(27,14,13,.88) !important;
+}
+
+.media-authenticity-notice strong{
+  color:var(--trumpet) !important;
+  text-shadow:0 2px 7px rgba(27,14,13,.92) !important;
+}
+
+.media-authenticity-notice i{
+  color:var(--trumpet) !important;
+  text-shadow:0 2px 7px rgba(27,14,13,.9) !important;
+}
+
