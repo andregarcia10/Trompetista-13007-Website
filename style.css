@@ -3314,3 +3314,98 @@ textarea:focus-visible{
   }
 }
 
+
+/* Correção do texto do item 01 da seção Lutas */
+.proposal-card__text{
+  grid-area:text;
+  width:100%;
+  min-width:0;
+  align-self:start;
+}
+
+.proposal-card__text p{
+  width:100%;
+  margin:0;
+  line-height:1.72;
+}
+
+.proposal-card__text p + p{
+  margin-top:1rem;
+}
+
+
+/* Lutas — convite para sugestões de pautas dos eleitores */
+.proposals__suggestion{
+  position:relative;
+  display:grid;
+  justify-items:center;
+  gap:16px;
+  width:min(100%,760px);
+  margin:52px auto 0;
+  padding:30px 26px 32px;
+  text-align:center;
+  border:2px solid var(--brown);
+  background:rgba(244,227,200,.82);
+  box-shadow:9px 9px 0 var(--trumpet);
+}
+
+.proposals__suggestion::before{
+  content:"";
+  position:absolute;
+  top:-9px;
+  left:50%;
+  width:96px;
+  height:12px;
+  background:var(--red);
+  transform:translateX(-50%) skewX(-28deg);
+}
+
+.proposals__suggestion p{
+  margin:0;
+  color:var(--brown);
+  font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  font-size:clamp(2rem,4vw,3.15rem);
+  font-weight:400;
+  line-height:.95;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+}
+
+.proposals__suggestion-button{
+  min-width:280px;
+  min-height:60px;
+  padding:16px 28px;
+  color:var(--brown) !important;
+  background:var(--trumpet) !important;
+  border:2px solid var(--brown) !important;
+  border-radius:2px !important;
+  box-shadow:7px 7px 0 var(--red) !important;
+  text-decoration:none;
+}
+
+.proposals__suggestion-button:hover,
+.proposals__suggestion-button:focus-visible{
+  transform:translate(-2px,-2px);
+  box-shadow:10px 10px 0 var(--red) !important;
+}
+
+.proposals__suggestion-button.is-disabled{
+  cursor:default;
+}
+
+@media(max-width:700px){
+  .proposals__suggestion{
+    margin-top:40px;
+    padding:26px 18px 28px;
+  }
+
+  .proposals__suggestion p{
+    font-size:clamp(2rem,11vw,2.8rem);
+  }
+
+  .proposals__suggestion-button{
+    width:min(100%,320px);
+    min-width:0;
+  }
+}
+
