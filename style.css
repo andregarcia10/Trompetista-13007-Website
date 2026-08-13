@@ -3007,3 +3007,15 @@ textarea:focus-visible{
   }
 }
 
+
+/* WhatsApp em dispositivos móveis: sempre fixo no canto inferior direito */
+@media(max-width:700px){
+  .whatsapp-float,
+  .whatsapp-float.is-footer-centered{
+    left:auto !important;
+    right:24px !important;
+    bottom:24px !important;
+    transform:none !important;
+  }
+}
+
