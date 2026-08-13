@@ -3124,3 +3124,14 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone — primeira página: WhatsApp mais próximo do aviso de conteúdo visual */
+@media(max-width:700px){
+  /* Na primeira página a seta está oculta; portanto o WhatsApp pode descer
+     e ficar apenas um pequeno espaço acima do aviso. */
+  .media-authenticity-notice.is-visible ~ .whatsapp-float:has(~ .back-to-top.is-first-page-mobile),
+  .media-authenticity-notice.is-visible ~ .whatsapp-float.is-footer-centered:has(~ .back-to-top.is-first-page-mobile){
+    bottom:92px !important;
+  }
+}
+
