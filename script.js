@@ -393,8 +393,12 @@ function initMediaAuthenticityNotice(){
   const update = () => {
     const lightbox = qs('#lightbox');
     const lightboxOpen = lightbox && !lightbox.hidden && lightbox.classList.contains('is-active');
+    const hero = qs('#inicio');
+    const onFirstPage = hero && visibleSections.has(hero);
     const shouldShow = visibleSections.size > 0 || lightboxOpen;
+
     notice.classList.toggle('is-visible', shouldShow);
+    notice.classList.toggle('is-first-page-style', Boolean(onFirstPage));
     notice.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
   };
 
