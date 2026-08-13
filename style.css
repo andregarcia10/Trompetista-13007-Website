@@ -3019,3 +3019,15 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone: WhatsApp sobe somente enquanto o aviso de conteúdo visual está visível */
+@media(max-width:700px){
+  .media-authenticity-notice.is-visible ~ .whatsapp-float,
+  .media-authenticity-notice.is-visible ~ .whatsapp-float.is-footer-centered{
+    left:auto !important;
+    right:24px !important;
+    bottom:104px !important;
+    transform:none !important;
+  }
+}
+
