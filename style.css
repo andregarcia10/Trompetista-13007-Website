@@ -3249,56 +3249,68 @@ textarea:focus-visible{
 }
 
 
-/* Aviso "Conteúdo visual 100% real":
-   visual transparente atual SOMENTE na primeira página;
-   visual anterior restaurado em todas as páginas/momentos posteriores. */
-
-/* Configuração anterior — padrão a partir da segunda página */
-.media-authenticity-notice{
-  color:var(--brown) !important;
-  background:rgba(244,227,200,.96) !important;
-  border:2px solid var(--brown) !important;
-  border-left:8px solid var(--trumpet) !important;
-  box-shadow:7px 7px 0 rgba(83,20,20,.42) !important;
-  text-shadow:none !important;
-  backdrop-filter:none !important;
-  -webkit-backdrop-filter:none !important;
+/* Lutas — 6 cards com texto em largura total e CTA centralizado na base */
+.proposals__grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
 }
 
-.media-authenticity-notice strong{
-  color:var(--red-dark) !important;
-  text-shadow:none !important;
+.proposal-card{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  grid-template-areas:
+    "icon title number"
+    "text text text"
+    "cta cta cta";
+  grid-template-rows:auto 1fr auto;
+  column-gap:18px;
+  row-gap:16px;
+  height:100%;
 }
 
-.media-authenticity-notice i{
-  color:var(--red) !important;
-  text-shadow:none !important;
+.proposal-card__icon{grid-area:icon}
+.proposal-card__number{grid-area:number;justify-self:end}
+
+.proposal-card h3{
+  grid-area:title;
+  margin:0;
+  align-self:center;
 }
 
-/* Primeira página — mantém exatamente a configuração visual atual */
-.media-authenticity-notice.is-first-page-style{
-  color:var(--cream) !important;
-  background:rgba(244,227,200,.16) !important;
-  border-color:rgba(27,14,13,.58) !important;
-  border-left-color:rgba(255,166,64,.78) !important;
-  text-shadow:0 2px 7px rgba(27,14,13,.88) !important;
-  backdrop-filter:blur(4px) !important;
-  -webkit-backdrop-filter:blur(4px) !important;
+.proposal-card > p{
+  grid-area:text;
+  width:100%;
+  margin:0;
 }
 
-.media-authenticity-notice.is-first-page-style strong{
-  color:var(--trumpet) !important;
-  text-shadow:0 2px 7px rgba(27,14,13,.92) !important;
+.proposal-card > p + p{
+  margin-top:-6px;
 }
 
-.media-authenticity-notice.is-first-page-style i{
-  color:var(--trumpet) !important;
-  text-shadow:0 2px 7px rgba(27,14,13,.90) !important;
+.proposal-card > a{
+  grid-area:cta;
+  justify-self:center;
+  align-self:end;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin-top:8px;
+  padding-top:13px;
+  color:var(--red-dark);
+  font-weight:900;
+  text-align:center;
+  text-decoration:none;
 }
 
-@media(max-width:700px){
-  .media-authenticity-notice{
-    box-shadow:5px 5px 0 rgba(83,20,20,.38) !important;
+.proposal-card > a:hover,
+.proposal-card > a:focus-visible{
+  color:var(--red);
+}
+
+@media(max-width:960px){
+  .proposals__grid{
+    grid-template-columns:1fr;
   }
 }
 
