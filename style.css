@@ -3155,3 +3155,25 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone — rodapé: centralizar marca oficial e texto institucional */
+@media(max-width:700px){
+  .site-footer__top{
+    align-items:center !important;
+  }
+
+  .site-footer .brand--footer{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    align-self:center !important;
+  }
+
+  .site-footer__top > p{
+    width:100% !important;
+    max-width:34rem;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+}
+
