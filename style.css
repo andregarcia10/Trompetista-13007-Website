@@ -3135,3 +3135,23 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone — primeira página: seta sempre oculta; WhatsApp permanece baixo */
+@media(max-width:700px){
+  /* Esta regra tem prioridade sobre qualquer regra anterior que tente
+     reexibir o botão de voltar ao topo quando o aviso estiver visível. */
+  .back-to-top.is-first-page-mobile,
+  .media-authenticity-notice.is-visible ~ .back-to-top.is-first-page-mobile{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    display:none !important;
+  }
+
+  /* Preserva a posição baixa já aprovada do WhatsApp na primeira página. */
+  .media-authenticity-notice.is-visible ~ .whatsapp-float:has(~ .back-to-top.is-first-page-mobile),
+  .media-authenticity-notice.is-visible ~ .whatsapp-float.is-footer-centered:has(~ .back-to-top.is-first-page-mobile){
+    bottom:92px !important;
+  }
+}
+
