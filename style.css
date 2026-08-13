@@ -3056,3 +3056,34 @@ textarea:focus-visible{
   }
 }
 
+
+/* Ajustes finais dos botões flutuantes — somente smartphones */
+@media(max-width:700px){
+  /* Na primeira página, o botão "voltar ao topo" não deve aparecer. */
+  .back-to-top.is-first-page-mobile{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(10px) !important;
+  }
+
+  /* Quando o aviso de conteúdo real estiver visível:
+     WhatsApp acima; botão voltar ao topo abaixo. */
+  .media-authenticity-notice.is-visible ~ .whatsapp-float,
+  .media-authenticity-notice.is-visible ~ .whatsapp-float.is-footer-centered{
+    left:auto !important;
+    right:24px !important;
+    bottom:154px !important;
+    transform:none !important;
+  }
+
+  .media-authenticity-notice.is-visible ~ .back-to-top:not(.is-first-page-mobile){
+    right:27px !important;
+    bottom:92px !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+  }
+}
+

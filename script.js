@@ -77,6 +77,7 @@ function initNavbar() {
 function initScroll() {
   const progress = qs('#scroll-progress');
   const backToTop = qs('#back-to-top');
+  const hero = qs('#inicio');
   const sections = qsa('main section[id]');
   const links = qsa('.navbar__link[href^="#"]');
 
@@ -98,6 +99,12 @@ function initScroll() {
     const percentage = max > 0 ? (window.scrollY / max) * 100 : 0;
     if (progress) progress.style.width = `${percentage}%`;
     backToTop?.classList.toggle('is-visible', window.scrollY > 600);
+
+    if (backToTop && hero) {
+      const onFirstPage = window.innerWidth <= 700 &&
+        window.scrollY < (hero.offsetTop + hero.offsetHeight - 1);
+      backToTop.classList.toggle('is-first-page-mobile', onFirstPage);
+    }
 
     let current = '';
     sections.forEach(section => {
