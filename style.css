@@ -3087,3 +3087,40 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphones: WhatsApp sempre acima do botão "voltar ao topo" */
+@media(max-width:700px){
+  /* Estado normal em todas as páginas móveis */
+  .whatsapp-float,
+  .whatsapp-float.is-footer-centered{
+    left:auto !important;
+    right:24px !important;
+    bottom:86px !important;
+    transform:none !important;
+  }
+
+  .back-to-top{
+    right:27px !important;
+    bottom:24px !important;
+  }
+
+  /* Quando o aviso de conteúdo visual estiver visível:
+     ambos sobem, mantendo WhatsApp acima da seta. */
+  .media-authenticity-notice.is-visible ~ .whatsapp-float,
+  .media-authenticity-notice.is-visible ~ .whatsapp-float.is-footer-centered{
+    bottom:154px !important;
+  }
+
+  .media-authenticity-notice.is-visible ~ .back-to-top:not(.is-first-page-mobile){
+    bottom:92px !important;
+  }
+
+  /* Na primeira página a seta continua inexistente. */
+  .back-to-top.is-first-page-mobile{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(10px) !important;
+  }
+}
+
