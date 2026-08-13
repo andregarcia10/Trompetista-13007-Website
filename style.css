@@ -3042,3 +3042,17 @@ textarea:focus-visible{
   }
 }
 
+
+/* Smartphone: quando o aviso de conteúdo real estiver visível,
+   manter "voltar ao topo" acima do botão flutuante do WhatsApp */
+@media(max-width:700px){
+  .media-authenticity-notice.is-visible ~ .back-to-top{
+    right:27px !important;
+    bottom:154px !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+  }
+}
+
