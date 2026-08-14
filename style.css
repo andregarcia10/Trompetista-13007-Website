@@ -3651,3 +3651,37 @@ textarea:focus-visible{
 .lula-feature__block{width:min(100%,1120px);margin:0 auto}.lula-feature__block-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}.lula-feature__kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 10px;color:var(--brown);background:var(--trumpet);border:2px solid var(--cream);box-shadow:5px 5px 0 var(--red);font-weight:900;letter-spacing:.12em;text-transform:uppercase}.lula-feature__block-heading h3{margin:0;color:var(--cream);font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:400;line-height:.95;text-transform:uppercase;text-align:right}.lula-feature__divider{width:min(100%,1120px);height:7px;margin:58px auto;background:linear-gradient(90deg,var(--red) 0 35%,var(--trumpet) 35% 62%,var(--cream) 62% 100%);transform:skewX(-28deg);opacity:.9}.lula-carousel{width:100%}.lula-carousel__viewport{overflow:hidden;border:2px solid var(--cream);background:var(--brown);box-shadow:10px 10px 0 var(--red)}.lula-carousel__track{display:flex;align-items:stretch;will-change:transform;transition:transform .5s cubic-bezier(.22,1,.36,1)}.lula-carousel__slide{flex:0 0 calc(100% / var(--lula-visible,3));min-width:0;margin:0;padding:7px;background:var(--brown)}.lula-carousel__slide--photo img{width:100%;height:360px;object-fit:cover;border:1px solid rgba(244,227,200,.5);background:#10090a}.lula-carousel__slide--video{display:flex;align-items:center}.lula-carousel__slide--video video{display:block;width:100%;height:390px;object-fit:contain;background:#080505;border:1px solid rgba(244,227,200,.5)}.lula-carousel__controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}.lula-carousel__control{display:grid;place-items:center;width:52px;height:52px;padding:0;color:var(--brown);background:var(--trumpet);border:2px solid var(--cream);border-radius:2px;box-shadow:5px 5px 0 var(--red);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}.lula-carousel__control:hover,.lula-carousel__control:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--red)}.lula-carousel__control:disabled{opacity:.45;cursor:default;transform:none}.lula-carousel__status{min-width:82px;padding:8px 14px;color:var(--cream);background:var(--red-dark);border:2px solid var(--cream);font-weight:900;text-align:center;letter-spacing:.08em}
 @media(max-width:960px){.lula-feature__block-heading{align-items:flex-start;flex-direction:column}.lula-feature__block-heading h3{text-align:left}.lula-carousel__slide--photo img{height:330px}.lula-carousel__slide--video video{height:360px}}
 @media(max-width:700px){.lula-feature__divider{margin:44px auto}.lula-carousel__viewport{box-shadow:7px 7px 0 var(--red)}.lula-carousel__slide{padding:5px}.lula-carousel__slide--photo img{height:min(106vw,500px)}.lula-carousel__slide--video video{height:min(126vw,560px)}.lula-carousel__controls{margin-top:20px}}
+
+
+/* =========================================================
+   HERO — "CORAGEM PARA / MUDAR O DF" em exatamente 2 linhas
+   Mantém tipografia, cores e animação da identidade visual.
+   ========================================================= */
+.hero--video .hero__title--rotating .hero__title-slide--1{
+  width:100%;
+  max-width:none;
+  font-size:clamp(3rem,6.5vw,6.4rem);
+  line-height:.84;
+}
+
+.hero--video .hero__title--rotating .hero__title-slide--1 .hero__title-line,
+.hero--video .hero__title--rotating .hero__title-slide--1 .hero__title-accent{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  white-space:nowrap;
+}
+
+@media(max-width:960px){
+  .hero--video .hero__title--rotating .hero__title-slide--1{
+    font-size:clamp(3rem,9vw,5.4rem);
+  }
+}
+
+@media(max-width:700px){
+  .hero--video .hero__title--rotating .hero__title-slide--1{
+    font-size:clamp(2.65rem,13vw,4.15rem);
+    line-height:.86;
+  }
+}
+
