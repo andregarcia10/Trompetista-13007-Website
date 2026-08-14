@@ -3410,3 +3410,244 @@ textarea:focus-visible{
 }
 
 \n\n/* CTA penúltima página — doação + participação não financeira */\n.cta__buttons{\n  flex-direction:column;\n  gap:18px;\n}\n\n.cta__buttons .cta__button-donation,\n.cta__buttons .cta__button-participation{\n  width:min(100%,620px) !important;\n  min-width:0 !important;\n}\n\n/* Doação mantém o destaque principal já existente */\n.cta__buttons .cta__button-donation{\n  color:var(--brown) !important;\n  background:var(--trumpet) !important;\n  border:3px solid var(--brown) !important;\n  box-shadow:10px 10px 0 var(--red) !important;\n}\n\n/* Participação: segundo CTA, igualmente visível, mas visualmente distinto */\n.cta__buttons .cta__button-participation{\n  color:var(--cream) !important;\n  background:var(--red) !important;\n  border:3px solid var(--cream) !important;\n  box-shadow:10px 10px 0 var(--brown) !important;\n}\n\n.cta__buttons .cta__button-participation:hover,\n.cta__buttons .cta__button-participation:focus-visible{\n  background:var(--red-dark) !important;\n  box-shadow:14px 14px 0 var(--brown) !important;\n}\n\n@media(max-width:700px){\n  .cta__buttons{\n    gap:15px;\n  }\n\n  .cta__buttons .cta__button-donation,\n  .cta__buttons .cta__button-participation{\n    width:100% !important;\n    min-height:66px !important;\n    padding:17px 20px !important;\n    font-size:1rem !important;\n    line-height:1.22;\n    white-space:normal;\n  }\n}\n
+
+
+/* =========================================================
+   FLICKR — botões para fotos da campanha
+   Seções Agenda e Participar
+   ========================================================= */
+
+.agenda__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:24px;
+}
+
+.agenda__actions .button{
+  min-width:220px;
+}
+
+.button--flickr{
+  color:var(--cream);
+  background:var(--red-dark);
+  border:2px solid var(--brown);
+  box-shadow:6px 6px 0 var(--trumpet);
+}
+
+.button--flickr:hover,
+.button--flickr:focus-visible{
+  color:var(--cream);
+  background:var(--red);
+  transform:translate(-2px,-2px);
+  box-shadow:9px 9px 0 var(--trumpet);
+}
+
+.button--flickr i{
+  color:var(--trumpet);
+}
+
+.cta__buttons .cta__button-flickr{
+  width:min(100%,620px) !important;
+  min-width:0 !important;
+  color:var(--brown) !important;
+  background:var(--cream) !important;
+  border:3px solid var(--brown) !important;
+  box-shadow:10px 10px 0 var(--trumpet) !important;
+}
+
+.cta__buttons .cta__button-flickr i{
+  color:var(--red) !important;
+}
+
+.cta__buttons .cta__button-flickr:hover,
+.cta__buttons .cta__button-flickr:focus-visible{
+  background:#f8d9c9 !important;
+  box-shadow:14px 14px 0 var(--trumpet) !important;
+}
+
+@media(max-width:700px){
+  .agenda__actions{
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .agenda__actions .button{
+    width:100%;
+    min-width:0;
+  }
+
+  .cta__buttons .cta__button-flickr{
+    width:100% !important;
+    min-height:66px !important;
+    padding:17px 20px !important;
+    font-size:1rem !important;
+    line-height:1.22;
+    white-space:normal;
+  }
+}
+
+
+/* =========================================================
+   FOTOS DA CAMPANHA — carrossel + Flickr
+   ========================================================= */
+
+.campaign-photos{
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(244,227,200,.97),rgba(244,227,200,.97)),
+    repeating-linear-gradient(135deg,var(--red) 0 26px,var(--cream) 26px 52px);
+}
+
+.campaign-photos__carousel{
+  width:min(100%,1080px);
+  margin:0 auto;
+}
+
+.campaign-photos__viewport{
+  overflow:hidden;
+  border:3px solid var(--brown);
+  background:var(--brown);
+  box-shadow:12px 12px 0 var(--trumpet);
+}
+
+.campaign-photos__track{
+  display:flex;
+  will-change:transform;
+  transition:transform .52s cubic-bezier(.22,1,.36,1);
+}
+
+.campaign-photos__slide{
+  flex:0 0 33.333333%;
+  min-width:0;
+  margin:0;
+  padding:6px;
+  background:var(--cream);
+}
+
+.campaign-photos__slide img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border:2px solid var(--brown);
+  background:var(--brown);
+}
+
+.campaign-photos__controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  margin-top:26px;
+}
+
+.campaign-photos__control{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  padding:0;
+  color:var(--brown);
+  background:var(--trumpet);
+  border:2px solid var(--brown);
+  border-radius:2px;
+  box-shadow:5px 5px 0 var(--red);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.campaign-photos__control:hover,
+.campaign-photos__control:focus-visible{
+  transform:translate(-2px,-2px);
+  box-shadow:8px 8px 0 var(--red);
+}
+
+.campaign-photos__status{
+  min-width:82px;
+  padding:8px 14px;
+  color:var(--cream);
+  background:var(--red-dark);
+  border:2px solid var(--brown);
+  font-family:"Saira",sans-serif;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:.08em;
+}
+
+.campaign-photos__flickr{
+  display:flex;
+  justify-content:center;
+  margin-top:34px;
+}
+
+.campaign-photos__flickr-button{
+  min-width:330px;
+  min-height:62px;
+  color:var(--cream) !important;
+  background:var(--red) !important;
+  border:2px solid var(--brown) !important;
+  border-radius:2px !important;
+  box-shadow:8px 8px 0 var(--trumpet) !important;
+}
+
+.campaign-photos__flickr-button:hover,
+.campaign-photos__flickr-button:focus-visible{
+  transform:translate(-2px,-2px);
+  background:var(--red-dark) !important;
+  box-shadow:11px 11px 0 var(--trumpet) !important;
+}
+
+.campaign-photos__flickr-button .fa-flickr{
+  color:var(--trumpet);
+}
+
+@media(max-width:960px){
+  .campaign-photos__slide{
+    flex-basis:50%;
+  }
+
+  .campaign-photos__slide img{
+    height:320px;
+  }
+}
+
+@media(max-width:700px){
+  .campaign-photos__viewport{
+    box-shadow:7px 7px 0 var(--trumpet);
+  }
+
+  .campaign-photos__slide{
+    flex-basis:100%;
+    padding:5px;
+  }
+
+  .campaign-photos__slide img{
+    height:min(67vw,430px);
+  }
+
+  .campaign-photos__controls{
+    margin-top:20px;
+  }
+
+  .campaign-photos__flickr{
+    margin-top:28px;
+  }
+
+  .campaign-photos__flickr-button{
+    width:100%;
+    min-width:0;
+    min-height:60px;
+    padding:16px 18px;
+    white-space:normal;
+    text-align:center;
+  }
+}
+
+
+
+/* O TROMPETISTA DO LULA — carrosséis de fotos e vídeos */
+.lula-feature{overflow:hidden;color:var(--cream);background:linear-gradient(180deg,rgba(27,14,13,.96),rgba(83,20,20,.94)),repeating-linear-gradient(135deg,var(--red-dark) 0 36px,var(--brown) 36px 72px)}
+.lula-feature::after{content:"";position:absolute;z-index:-1;right:-10vw;top:8%;width:min(42vw,520px);aspect-ratio:1;background:url("assets/brand/simbolo.svg") center/contain no-repeat;opacity:.08;transform:rotate(-12deg)}
+.lula-feature__block{width:min(100%,1120px);margin:0 auto}.lula-feature__block-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}.lula-feature__kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 10px;color:var(--brown);background:var(--trumpet);border:2px solid var(--cream);box-shadow:5px 5px 0 var(--red);font-weight:900;letter-spacing:.12em;text-transform:uppercase}.lula-feature__block-heading h3{margin:0;color:var(--cream);font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:400;line-height:.95;text-transform:uppercase;text-align:right}.lula-feature__divider{width:min(100%,1120px);height:7px;margin:58px auto;background:linear-gradient(90deg,var(--red) 0 35%,var(--trumpet) 35% 62%,var(--cream) 62% 100%);transform:skewX(-28deg);opacity:.9}.lula-carousel{width:100%}.lula-carousel__viewport{overflow:hidden;border:2px solid var(--cream);background:var(--brown);box-shadow:10px 10px 0 var(--red)}.lula-carousel__track{display:flex;align-items:stretch;will-change:transform;transition:transform .5s cubic-bezier(.22,1,.36,1)}.lula-carousel__slide{flex:0 0 calc(100% / var(--lula-visible,3));min-width:0;margin:0;padding:7px;background:var(--brown)}.lula-carousel__slide--photo img{width:100%;height:360px;object-fit:cover;border:1px solid rgba(244,227,200,.5);background:#10090a}.lula-carousel__slide--video{display:flex;align-items:center}.lula-carousel__slide--video video{display:block;width:100%;height:390px;object-fit:contain;background:#080505;border:1px solid rgba(244,227,200,.5)}.lula-carousel__controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}.lula-carousel__control{display:grid;place-items:center;width:52px;height:52px;padding:0;color:var(--brown);background:var(--trumpet);border:2px solid var(--cream);border-radius:2px;box-shadow:5px 5px 0 var(--red);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}.lula-carousel__control:hover,.lula-carousel__control:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--red)}.lula-carousel__control:disabled{opacity:.45;cursor:default;transform:none}.lula-carousel__status{min-width:82px;padding:8px 14px;color:var(--cream);background:var(--red-dark);border:2px solid var(--cream);font-weight:900;text-align:center;letter-spacing:.08em}
+@media(max-width:960px){.lula-feature__block-heading{align-items:flex-start;flex-direction:column}.lula-feature__block-heading h3{text-align:left}.lula-carousel__slide--photo img{height:330px}.lula-carousel__slide--video video{height:360px}}
+@media(max-width:700px){.lula-feature__divider{margin:44px auto}.lula-carousel__viewport{box-shadow:7px 7px 0 var(--red)}.lula-carousel__slide{padding:5px}.lula-carousel__slide--photo img{height:min(106vw,500px)}.lula-carousel__slide--video video{height:min(126vw,560px)}.lula-carousel__controls{margin-top:20px}}
