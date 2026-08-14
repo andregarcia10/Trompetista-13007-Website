@@ -3685,3 +3685,243 @@ textarea:focus-visible{
   }
 }
 
+
+/* =========================================================
+   QUEM SOU — imagem fabiano-about exibida por completo
+   Mantém a identidade visual oficial e elimina o corte lateral.
+   ========================================================= */
+@media(min-width:961px){
+  #quem .about__grid{
+    grid-template-columns:minmax(430px,1fr) minmax(0,1fr);
+    gap:64px;
+    align-items:start;
+  }
+
+  #quem .about__media{
+    width:100%;
+    max-width:560px;
+    justify-self:center;
+  }
+}
+
+#quem .about__frame{
+  width:100%;
+  height:auto;
+  aspect-ratio:783 / 817;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--cream);
+  overflow:hidden;
+}
+
+#quem .about__frame img{
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+}
+
+/* Em tablets e celulares a imagem continua inteira e ocupa a largura disponível. */
+@media(max-width:960px){
+  #quem .about__grid{
+    align-items:start;
+  }
+
+  #quem .about__media{
+    width:min(100%,620px);
+    margin-inline:auto;
+  }
+
+  #quem .about__frame{
+    aspect-ratio:783 / 817;
+  }
+}
+
+@media(max-width:700px){
+  #quem .about__media{
+    width:100%;
+  }
+
+  #quem .about__frame{
+    aspect-ratio:783 / 817;
+  }
+}
+
+
+/* =========================================================
+   QUEM SOU — caixas abaixo da foto/texto + carrossel autoplay
+   Mantém a identidade visual oficial da campanha.
+   ========================================================= */
+
+#quem .about__feature-list{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  width:100%;
+  margin:54px 0 0;
+}
+
+#quem .about__feature-list .feature-card{
+  min-height:132px;
+  margin:0;
+  align-items:flex-start;
+}
+
+#quem .about__feature-list .feature-card:nth-child(n){
+  transform:none;
+}
+
+#quem .about__feature-list .feature-card:hover{
+  transform:translate(-2px,-3px);
+}
+
+.about-carousel{
+  width:100%;
+  margin-top:58px;
+}
+
+.about-carousel__heading{
+  max-width:760px;
+  margin:0 auto 28px;
+  text-align:center;
+}
+
+.about-carousel__heading .section-heading__label{
+  margin-bottom:14px;
+}
+
+.about-carousel__heading h3{
+  margin:0;
+  color:var(--brown);
+  font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  font-size:clamp(2.1rem,4vw,3.4rem);
+  font-weight:400;
+  line-height:.96;
+  text-transform:uppercase;
+}
+
+.about-carousel__viewport{
+  overflow:hidden;
+  border:3px solid var(--brown);
+  background:var(--brown);
+  box-shadow:11px 11px 0 var(--trumpet);
+}
+
+.about-carousel__track{
+  display:flex;
+  will-change:transform;
+  transition:transform .55s cubic-bezier(.22,1,.36,1);
+}
+
+.about-carousel__slide{
+  flex:0 0 33.333333%;
+  min-width:0;
+  margin:0;
+  padding:6px;
+  background:var(--cream);
+}
+
+.about-carousel__slide img{
+  width:100%;
+  height:410px;
+  object-fit:contain;
+  object-position:center;
+  background:#ead6b8;
+  border:2px solid var(--brown);
+}
+
+.about-carousel__controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  margin-top:24px;
+}
+
+.about-carousel__control{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  padding:0;
+  color:var(--brown);
+  background:var(--trumpet);
+  border:2px solid var(--brown);
+  border-radius:2px;
+  box-shadow:5px 5px 0 var(--red);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.about-carousel__control:hover,
+.about-carousel__control:focus-visible{
+  transform:translate(-2px,-2px);
+  box-shadow:8px 8px 0 var(--red);
+}
+
+.about-carousel__status{
+  min-width:82px;
+  padding:8px 14px;
+  color:var(--cream);
+  background:var(--red-dark);
+  border:2px solid var(--brown);
+  font-family:"Saira",sans-serif;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:.08em;
+}
+
+@media(max-width:960px){
+  #quem .about__feature-list{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+
+  #quem .about__feature-list .feature-card{
+    min-height:148px;
+    padding:15px;
+  }
+
+  .about-carousel__slide{
+    flex-basis:50%;
+  }
+
+  .about-carousel__slide img{
+    height:390px;
+  }
+}
+
+@media(max-width:700px){
+  #quem .about__feature-list{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:40px;
+  }
+
+  #quem .about__feature-list .feature-card{
+    min-height:0;
+  }
+
+  .about-carousel{
+    margin-top:46px;
+  }
+
+  .about-carousel__viewport{
+    box-shadow:7px 7px 0 var(--trumpet);
+  }
+
+  .about-carousel__slide{
+    flex-basis:100%;
+    padding:5px;
+  }
+
+  .about-carousel__slide img{
+    height:min(118vw,520px);
+  }
+
+  .about-carousel__controls{
+    margin-top:20px;
+  }
+}
+

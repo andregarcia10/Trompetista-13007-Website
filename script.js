@@ -535,6 +535,96 @@ function initLulaCarousels(){
 }
 
 
+
+
+// ===== quem-sou-carousel.js =====
+function initAboutCarousel(){
+  const carousel = qs('[data-about-carousel]');
+  if(!carousel) return;
+
+  const track = qs('[data-about-track]', carousel);
+  const slides = qsa('.about-carousel__slide', carousel);
+  const prev = qs('[data-about-prev]', carousel);
+  const next = qs('[data-about-next]', carousel);
+  const currentLabel = qs('[data-about-current]', carousel);
+
+  if(!track || !slides.length) return;
+
+  let index = 0;
+  let timer = null;
+
+  const visibleCount = () => {
+    if(window.innerWidth <= 700) return 1;
+    if(window.innerWidth <= 960) return 2;
+    return 3;
+  };
+
+  const maxIndex = () => Math.max(0, slides.length - visibleCount());
+
+  const render = () => {
+    const visible = visibleCount();
+    index = clamp(index, 0, maxIndex());
+    track.style.transform = `translateX(-${index * (100 / visible)}%)`;
+    if(currentLabel) currentLabel.textContent = String(index + 1);
+  };
+
+  const move = direction => {
+    const max = maxIndex();
+    if(direction > 0){
+      index = index >= max ? 0 : index + 1;
+    }else{
+      index = index <= 0 ? max : index - 1;
+    }
+    render();
+  };
+
+  const stopAuto = () => {
+    if(timer){
+      window.clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    if(prefersReducedMotion()) return;
+    timer = window.setInterval(() => move(1), 4300);
+  };
+
+  prev?.addEventListener('click', () => {
+    move(-1);
+    startAuto();
+  });
+
+  next?.addEventListener('click', () => {
+    move(1);
+    startAuto();
+  });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', startAuto);
+
+  let touchStartX = 0;
+  carousel.addEventListener('touchstart', event => {
+    touchStartX = event.changedTouches[0].clientX;
+    stopAuto();
+  }, { passive:true });
+
+  carousel.addEventListener('touchend', event => {
+    const delta = event.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(delta) > 45) move(delta < 0 ? 1 : -1);
+    startAuto();
+  }, { passive:true });
+
+  window.addEventListener('resize', debounce(render, 120));
+
+  render();
+  startAuto();
+}
+
+
 // ===== app.js =====
 function initLazyImages() {
   qsa('img[loading="lazy"]').forEach(image => {
@@ -560,6 +650,7 @@ function initApp() {
   initMediaAuthenticityNotice();
   initCampaignPhotosCarousel();
   initLulaCarousels();
+  initAboutCarousel();
   const year = qs('#current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 }
