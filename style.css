@@ -4056,3 +4056,42 @@ textarea:focus-visible{
   font-size:.78rem !important;
 }
 
+
+/* =========================================================
+   MENU DESKTOP — mesma largura visual antes/depois da rolagem
+   Ajusta exclusivamente a largura ocupada pelo menu principal.
+   ========================================================= */
+@media(min-width:1081px){
+  .site-header.is-scrolled .navbar__menu{
+    width:fit-content;
+    flex:0 0 auto;
+  }
+
+  .site-header.is-scrolled .navbar__link{
+    padding-left:11px;
+    padding-right:11px;
+  }
+}
+
+
+/* =========================================================
+   MENU DESKTOP APÓS A PRIMEIRA PÁGINA
+   Aproxima o menu do logo e desloca todo o conjunto para a esquerda.
+   Não altera fundo, cores, tipografia ou demais características.
+   ========================================================= */
+@media(min-width:1081px){
+  .site-header.is-scrolled .navbar__inner{
+    justify-content:flex-start;
+    gap:14px;
+  }
+
+  .site-header.is-scrolled .navbar__menu{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .site-header.is-scrolled .navbar__actions{
+    margin-left:auto;
+  }
+}
+
