@@ -78,8 +78,16 @@ function initScroll() {
   const progress = qs('#scroll-progress');
   const backToTop = qs('#back-to-top');
   const hero = qs('#inicio');
-  const sections = qsa('main section[id]');
   const links = qsa('.navbar__link[href^="#"]');
+  const menuSectionIds = new Set(
+    links
+      .map(link => link.getAttribute('href'))
+      .filter(href => href && href.startsWith('#'))
+      .map(href => href.slice(1))
+  );
+  const sections = qsa('main section[id]').filter(section =>
+    menuSectionIds.has(section.id) && !section.hidden
+  );
 
   qsa('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
@@ -106,10 +114,18 @@ function initScroll() {
       backToTop.classList.toggle('is-first-page-mobile', onFirstPage);
     }
 
-    let current = '';
+    let current = sections[0]?.id || '';
+    const probeY = window.scrollY + Math.min(220, window.innerHeight * 0.28);
+
     sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 180) current = section.id;
+      if (probeY >= section.offsetTop) current = section.id;
     });
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      const lastSection = sections.at(-1);
+      if (lastSection) current = lastSection.id;
+    }
+
     links.forEach(link => {
       const active = link.getAttribute('href') === `#${current}`;
       link.classList.toggle('is-active', active);
