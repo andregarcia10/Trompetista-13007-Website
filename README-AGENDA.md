@@ -2,7 +2,7 @@
 
 ## O que esta integração faz
 
-A equipe edita uma planilha Google Sheets no Drive. O site continua usando os mesmos cards e a mesma identidade visual, mas passa a carregar os compromissos automaticamente.
+A equipe edita uma planilha do Google Sheets no Drive. O site continua usando os mesmos cards e a mesma identidade visual, mas passa a carregar os compromissos automaticamente.
 
 - Compromissos com data passada deixam de aparecer automaticamente.
 - Agendas fixas continuam visíveis.
