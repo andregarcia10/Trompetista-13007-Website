@@ -4095,3 +4095,27 @@ textarea:focus-visible{
   }
 }
 
+
+/* =========================================================
+   MENU DESKTOP — alinha o início do menu após a rolagem
+   com a mesma posição lateral usada na primeira página.
+   A marca scrolled ocupa 180px e a marca do Hero 104px:
+   deslocamento compensatório = 76px.
+   ========================================================= */
+@media(min-width:1081px){
+  .site-header.is-scrolled .navbar__menu{
+    transform:translateX(-76px);
+  }
+}
+
+
+/* =========================================================
+   BOTÃO QUERO APOIAR — acompanha o deslocamento do menu
+   no header desktop após a primeira página.
+   ========================================================= */
+@media(min-width:1081px){
+  .site-header.is-scrolled .navbar__actions{
+    transform:translateX(-76px);
+  }
+}
+
