@@ -625,6 +625,198 @@ function initAboutCarousel(){
 }
 
 
+
+
+// ===== agenda-dinamica.js =====
+function initDynamicAgenda(){
+  const section = qs('#agenda');
+  const list = qs('[data-agenda-list]', section || document);
+  const status = qs('[data-agenda-sync-status]', section || document);
+  if(!section || !list) return;
+
+  const endpoint = (section.dataset.agendaApiUrl || '').trim();
+  const configured = endpoint &&
+    !endpoint.includes('COLE_AQUI') &&
+    /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(endpoint);
+
+  if(!configured){
+    if(status){
+      status.innerHTML = '<i class="fa-solid fa-circle-info" aria-hidden="true"></i> Agenda exibida a partir da versão publicada no site. Configure a integração com o Google Sheets para atualização automática.';
+    }
+    return;
+  }
+
+  const create = (tag, className, text) => {
+    const element = document.createElement(tag);
+    if(className) element.className = className;
+    if(text !== undefined && text !== null) element.textContent = text;
+    return element;
+  };
+
+  const icon = className => {
+    const element = document.createElement('i');
+    element.className = className;
+    element.setAttribute('aria-hidden', 'true');
+    return element;
+  };
+
+  const appendMeta = (paragraph, iconClass, text) => {
+    if(!text) return;
+    if(paragraph.childNodes.length) paragraph.append(document.createTextNode('  '));
+    paragraph.append(icon(iconClass), document.createTextNode(` ${text}`));
+  };
+
+  const renderItem = item => {
+    const card = create('article', `agenda-card reveal is-visible${item.fixa ? ' agenda-card--fixed' : ''}`);
+
+    let dateBox;
+    if(item.fixa){
+      dateBox = create('div', 'agenda-card__date agenda-card__date--fixed');
+      dateBox.setAttribute('aria-hidden', 'true');
+      dateBox.append(icon('fa-solid fa-repeat'), create('span', '', 'FIXA'));
+    }else{
+      dateBox = create('time', 'agenda-card__date');
+      if(item.data) dateBox.setAttribute('datetime', item.data);
+      dateBox.append(
+        create('strong', '', item.dia || ''),
+        create('span', '', item.mes || '')
+      );
+    }
+
+    const content = create('div', 'agenda-card__content');
+
+    if(item.fixa){
+      const fixedLabel = create('span', 'agenda-card__fixed-label');
+      fixedLabel.append(icon('fa-solid fa-thumbtack'), document.createTextNode(' Agenda fixa'));
+      content.append(fixedLabel);
+    }
+
+    if(item.diaSemana || item.recorrencia){
+      content.append(create(
+        'span',
+        'agenda-card__weekday',
+        item.fixa ? (item.recorrencia || item.diaSemana) : item.diaSemana
+      ));
+    }
+
+    content.append(create('h3', '', item.evento || 'Compromisso da campanha'));
+
+    const meta = create('p');
+    appendMeta(meta, 'fa-regular fa-clock', item.horario);
+    appendMeta(meta, 'fa-solid fa-location-dot', item.local);
+    if(meta.childNodes.length) content.append(meta);
+
+    if(item.observacoes){
+      content.append(create('p', 'agenda-card__notes', item.observacoes));
+    }
+
+    card.append(dateBox, content);
+    return card;
+  };
+
+  const render = payload => {
+    const items = Array.isArray(payload?.itens) ? payload.itens : [];
+
+    if(!items.length){
+      list.replaceChildren();
+      const empty = create('div', 'agenda__empty');
+      empty.append(
+        icon('fa-regular fa-calendar'),
+        create('strong', '', 'Novos compromissos serão divulgados em breve.'),
+        create('span', '', 'A equipe da campanha está atualizando a agenda.')
+      );
+      list.append(empty);
+    }else{
+      const fragment = document.createDocumentFragment();
+      items.forEach(item => fragment.append(renderItem(item)));
+      list.replaceChildren(fragment);
+    }
+
+    if(status){
+      const updated = payload?.ultimaAtualizacao
+        ? ` Atualizada em ${payload.ultimaAtualizacao}.`
+        : '';
+      status.innerHTML = `<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Agenda sincronizada automaticamente com a equipe da campanha.${updated}`;
+      status.classList.add('is-synced');
+    }
+
+    try{
+      localStorage.setItem('fabiano13007_agenda_cache', JSON.stringify({
+        savedAt: Date.now(),
+        payload
+      }));
+    }catch(_){}
+  };
+
+  const useCachedFallback = () => {
+    try{
+      const cached = JSON.parse(localStorage.getItem('fabiano13007_agenda_cache') || 'null');
+      if(cached?.payload?.itens){
+        render(cached.payload);
+        if(status){
+          status.innerHTML = '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Exibindo a última agenda sincronizada. A atualização online será tentada novamente no próximo acesso.';
+          status.classList.remove('is-synced');
+          status.classList.add('is-fallback');
+        }
+        return true;
+      }
+    }catch(_){}
+    return false;
+  };
+
+  const callbackName = `fabianoAgenda_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+  const script = document.createElement('script');
+  let finished = false;
+
+  const cleanup = () => {
+    window.clearTimeout(timeout);
+    script.remove();
+    try{ delete window[callbackName]; }catch(_){ window[callbackName] = undefined; }
+  };
+
+  window[callbackName] = payload => {
+    if(finished) return;
+    finished = true;
+    cleanup();
+
+    if(payload?.ok === false){
+      if(!useCachedFallback() && status){
+        status.innerHTML = '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Não foi possível atualizar a agenda agora. Mantivemos a programação publicada no site.';
+        status.classList.add('is-fallback');
+      }
+      return;
+    }
+
+    render(payload);
+  };
+
+  const separator = endpoint.includes('?') ? '&' : '?';
+  script.src = `${endpoint}${separator}callback=${encodeURIComponent(callbackName)}&_=${Date.now()}`;
+  script.async = true;
+  script.onerror = () => {
+    if(finished) return;
+    finished = true;
+    cleanup();
+    if(!useCachedFallback() && status){
+      status.innerHTML = '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Não foi possível sincronizar a agenda agora. Mantivemos a programação publicada no site.';
+      status.classList.add('is-fallback');
+    }
+  };
+
+  const timeout = window.setTimeout(() => {
+    if(finished) return;
+    finished = true;
+    cleanup();
+    if(!useCachedFallback() && status){
+      status.innerHTML = '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> A sincronização demorou além do esperado. Mantivemos a programação publicada no site.';
+      status.classList.add('is-fallback');
+    }
+  }, 10000);
+
+  document.head.append(script);
+}
+
+
 // ===== app.js =====
 function initLazyImages() {
   qsa('img[loading="lazy"]').forEach(image => {
@@ -651,6 +843,7 @@ function initApp() {
   initCampaignPhotosCarousel();
   initLulaCarousels();
   initAboutCarousel();
+  initDynamicAgenda();
   const year = qs('#current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 }

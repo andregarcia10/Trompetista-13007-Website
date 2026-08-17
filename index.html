@@ -517,12 +517,18 @@
       </div>
     </section>
 
-    <section id="agenda" class="agenda section section--light" aria-labelledby="agenda-title">
+    <section id="agenda" class="agenda section section--light"
+      aria-labelledby="agenda-title"
+      data-agenda-api-url="https://script.google.com/macros/s/AKfycbwRfmg2ob2fMZvMxBSw_CtpM-_nSH4uOmCNtcLtgl5vHd-KJXK9plsVKbdsmA1EiQSU/exec">
       <div class="container agenda__layout">
         <header class="section-heading section-heading--left reveal">
           <span class="section-heading__label">Agenda</span>
           <h2 id="agenda-title">Encontre Fabiano Trompetista nas ruas.</h2>
           <p>Acompanhe os próximos encontros, caminhadas e rodas de conversa da campanha.</p>
+          <p class="agenda__sync-status" data-agenda-sync-status aria-live="polite">
+            <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+            Agenda conectada à equipe da campanha.
+          </p>
           <div class="agenda__actions">
             <a class="button button--ghost" href="#participar">Participar da campanha</a>
             <a class="button button--flickr agenda__flickr-button"
@@ -535,84 +541,62 @@
           </div>
         </header>
 
-        <div class="agenda__list">
+        <div class="agenda__list" data-agenda-list>
           <article class="agenda-card reveal">
-            <time class="agenda-card__date" datetime="2026-09-02"><strong>02</strong><span>SET</span></time>
-            <div class="agenda-card__content"><span class="agenda-card__weekday">Quarta-feira</span><h3>Caminhada no Eixão</h3><p><i class="fa-regular fa-clock"></i> 09h <i class="fa-solid fa-location-dot"></i> Brasília</p></div>
-            <a href="#participar" aria-label="Participar da caminhada"><i class="fa-solid fa-arrow-right"></i></a>
+            <time class="agenda-card__date" datetime="2026-08-19"><strong>19</strong><span>AGO</span></time>
+            <div class="agenda-card__content">
+              <span class="agenda-card__weekday">Quarta-feira</span>
+              <h3>Lançamento Oficial da Campanha Agnelo Queiroz – Deputado Federal</h3>
+              <p><i class="fa-regular fa-clock"></i> 19h <i class="fa-solid fa-location-dot"></i> Teatro dos Bancários – EQS 314/315 Sul</p>
+            </div>
           </article>
+
           <article class="agenda-card reveal">
-            <time class="agenda-card__date" datetime="2026-09-05"><strong>05</strong><span>SET</span></time>
-            <div class="agenda-card__content"><span class="agenda-card__weekday">Sábado</span><h3>Roda de conversa na Ceilândia</h3><p><i class="fa-regular fa-clock"></i> 15h <i class="fa-solid fa-location-dot"></i> Ceilândia</p></div>
-            <a href="#participar" aria-label="Participar da roda de conversa"><i class="fa-solid fa-arrow-right"></i></a>
+            <time class="agenda-card__date" datetime="2026-08-18"><strong>18</strong><span>AGO</span></time>
+            <div class="agenda-card__content">
+              <span class="agenda-card__weekday">Terça-feira</span>
+              <h3>Lançamento da Campanha para Deputada Federal de Rosilene Corrêa</h3>
+              <p><i class="fa-regular fa-clock"></i> 18:30h <i class="fa-solid fa-location-dot"></i> Sinpro – SIG Q.6, 2260</p>
+            </div>
+          </article>
+
+          <article class="agenda-card reveal">
+            <time class="agenda-card__date" datetime="2026-09-06"><strong>06</strong><span>SET</span></time>
+            <div class="agenda-card__content">
+              <span class="agenda-card__weekday">Quarta-feira</span>
+              <h3>Feirinha de adoção com a Candidata a Deputada Federal Vanessa Bicho</h3>
+              <p><i class="fa-regular fa-clock"></i> Manhã <i class="fa-solid fa-location-dot"></i> Eixão do Lazer – Asa Norte</p>
+            </div>
+          </article>
+
+          <article class="agenda-card agenda-card--fixed reveal">
+            <div class="agenda-card__date agenda-card__date--fixed" aria-hidden="true">
+              <i class="fa-solid fa-repeat"></i><span>FIXA</span>
+            </div>
+            <div class="agenda-card__content">
+              <span class="agenda-card__fixed-label"><i class="fa-solid fa-thumbtack"></i> Agenda fixa</span>
+              <span class="agenda-card__weekday">Todas as terças</span>
+              <h3>Banca na Feira do MDA</h3>
+              <p><i class="fa-regular fa-clock"></i> 10:30h <i class="fa-solid fa-location-dot"></i> Esplanada dos Ministérios</p>
+            </div>
+          </article>
+
+          <article class="agenda-card agenda-card--fixed reveal">
+            <div class="agenda-card__date agenda-card__date--fixed" aria-hidden="true">
+              <i class="fa-solid fa-repeat"></i><span>FIXA</span>
+            </div>
+            <div class="agenda-card__content">
+              <span class="agenda-card__fixed-label"><i class="fa-solid fa-thumbtack"></i> Agenda fixa</span>
+              <span class="agenda-card__weekday">Todos os sábados</span>
+              <h3>Banca na Feira do Pontão Norte</h3>
+              <p><i class="fa-regular fa-clock"></i> 8:30h</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="materiais" class="materials section" aria-labelledby="materials-title">
-      <div class="container">
-        <header class="section-heading reveal">
-          <span class="section-heading__label">Materiais</span>
-          <h2 id="materials-title">Leve essa mensagem adiante.</h2>
-          <p>Baixe materiais digitais e ajude a compartilhar a campanha.</p>
-        </header>
-        <div class="materials__grid">
-          <a class="material-card reveal" href="#"><i class="fa-solid fa-download"></i><div><h3>Santinho digital</h3><p>Imagem pronta para compartilhar.</p></div><span><i class="fa-solid fa-arrow-down"></i></span></a>
-          <a class="material-card reveal" href="#"><i class="fa-brands fa-whatsapp"></i><div><h3>Figurinhas</h3><p>Pacote para WhatsApp.</p></div><span><i class="fa-solid fa-arrow-down"></i></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="cola-eleitoral" class="voter-note section section--light" aria-labelledby="voter-note-title">
-      <div class="container">
-        <header class="section-heading reveal">
-          <span class="section-heading__label">Cola eleitoral</span>
-          <h2 id="voter-note-title">Monte sua cola para o dia da votação.</h2>
-          <p>Fabiano Trompetista e Lula já estão preenchidos. Complete os demais cargos com os nomes e números de sua preferência e imprima sua cola.</p>
-        </header>
-
-        <div class="voter-note__shell reveal">
-          <div class="voter-note__toolbar" aria-label="Ações da cola eleitoral">
-            <div>
-              <strong>Sua cola eleitoral</strong>
-              <span>Ordem de votação na urna eletrônica</span>
-            </div>
-            <div class="voter-note__actions">
-              <button class="button voter-note__button voter-note__button--clear" type="button" id="voter-note-clear"><i class="fa-solid fa-eraser" aria-hidden="true"></i> Limpar campos</button>
-              <button class="button voter-note__button voter-note__button--print" type="button" id="voter-note-print"><i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir cola</button>
-            </div>
-          </div>
-
-          <form class="voter-note__form" id="voter-note-form" autocomplete="off">
-            <ol class="voter-note__list">
-              <li class="voter-note__card"><div class="voter-note__order">1</div><div class="voter-note__content"><label class="voter-note__office" for="cola-dep-federal-nome">Deputado Federal</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-dep-federal-nome" name="dep-federal-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-dep-federal-numero" name="dep-federal-numero" type="text" inputmode="numeric" maxlength="4" placeholder="0000"></div></div></div></li>
-
-              <li class="voter-note__card voter-note__card--fixed"><div class="voter-note__order">2</div><div class="voter-note__content"><label class="voter-note__office" for="cola-dep-distrital-nome">Deputado Distrital</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-dep-distrital-nome" name="dep-distrital-nome" type="text" value="Fabiano Trompetista" readonly></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-dep-distrital-numero" name="dep-distrital-numero" type="text" value="13007" readonly></div></div></div><span class="voter-note__badge">Pré-preenchido</span></li>
-
-              <li class="voter-note__card"><div class="voter-note__order">3</div><div class="voter-note__content"><label class="voter-note__office" for="cola-senador1-nome">Senador — 1ª vaga</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-senador1-nome" name="senador1-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-senador1-numero" name="senador1-numero" type="text" inputmode="numeric" maxlength="3" placeholder="000"></div></div></div></li>
-
-              <li class="voter-note__card"><div class="voter-note__order">4</div><div class="voter-note__content"><label class="voter-note__office" for="cola-senador2-nome">Senador — 2ª vaga</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-senador2-nome" name="senador2-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-senador2-numero" name="senador2-numero" type="text" inputmode="numeric" maxlength="3" placeholder="000"></div></div></div></li>
-
-              <li class="voter-note__card"><div class="voter-note__order">5</div><div class="voter-note__content"><label class="voter-note__office" for="cola-governador-nome">Governador</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-governador-nome" name="governador-nome" type="text" placeholder="Nome do governador"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-governador-numero" name="governador-numero" type="text" inputmode="numeric" maxlength="2" placeholder="00"></div></div></div></li>
-
-              <li class="voter-note__card voter-note__card--fixed"><div class="voter-note__order">6</div><div class="voter-note__content"><label class="voter-note__office" for="cola-presidente-nome">Presidente da República</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-presidente-nome" name="presidente-nome" type="text" value="Lula" readonly></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-presidente-numero" name="presidente-numero" type="text" value="13" readonly></div></div></div><span class="voter-note__badge">Pré-preenchido</span></li>
-            </ol>
-          </form>
-
-          <div class="voter-note__bottom-action">
-            <button class="button voter-note__button voter-note__button--print" type="button" id="voter-note-print-bottom">
-              <i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir cola
-            </button>
-          </div>
-
-          <p class="voter-note__hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> A impressão contém somente a cola eleitoral preenchida. Os campos pré-preenchidos de Fabiano Trompetista (13007) e Lula (13) são preservados ao usar “Limpar campos”.</p>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="fotos-campanha" class="campaign-photos section" aria-labelledby="campaign-photos-title">
+<section id="fotos-campanha" class="campaign-photos section" aria-labelledby="campaign-photos-title">
       <div class="container">
         <header class="section-heading reveal">
           <span class="section-heading__label">Fotos da campanha</span>
@@ -685,6 +669,72 @@
         </div>
       </div>
     </section>
+
+<section id="cola-eleitoral" class="voter-note section section--light" aria-labelledby="voter-note-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__label">Cola eleitoral</span>
+          <h2 id="voter-note-title">Monte sua cola para o dia da votação.</h2>
+          <p>Fabiano Trompetista e Lula já estão preenchidos. Complete os demais cargos com os nomes e números de sua preferência e imprima sua cola.</p>
+        </header>
+
+        <div class="voter-note__shell reveal">
+          <div class="voter-note__toolbar" aria-label="Ações da cola eleitoral">
+            <div>
+              <strong>Sua cola eleitoral</strong>
+              <span>Ordem de votação na urna eletrônica</span>
+            </div>
+            <div class="voter-note__actions">
+              <button class="button voter-note__button voter-note__button--clear" type="button" id="voter-note-clear"><i class="fa-solid fa-eraser" aria-hidden="true"></i> Limpar campos</button>
+              <button class="button voter-note__button voter-note__button--print" type="button" id="voter-note-print"><i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir cola</button>
+            </div>
+          </div>
+
+          <form class="voter-note__form" id="voter-note-form" autocomplete="off">
+            <ol class="voter-note__list">
+              <li class="voter-note__card"><div class="voter-note__order">1</div><div class="voter-note__content"><label class="voter-note__office" for="cola-dep-federal-nome">Deputado Federal</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-dep-federal-nome" name="dep-federal-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-dep-federal-numero" name="dep-federal-numero" type="text" inputmode="numeric" maxlength="4" placeholder="0000"></div></div></div></li>
+
+              <li class="voter-note__card voter-note__card--fixed"><div class="voter-note__order">2</div><div class="voter-note__content"><label class="voter-note__office" for="cola-dep-distrital-nome">Deputado Distrital</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-dep-distrital-nome" name="dep-distrital-nome" type="text" value="Fabiano Trompetista" readonly></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-dep-distrital-numero" name="dep-distrital-numero" type="text" value="13007" readonly></div></div></div><span class="voter-note__badge">Pré-preenchido</span></li>
+
+              <li class="voter-note__card"><div class="voter-note__order">3</div><div class="voter-note__content"><label class="voter-note__office" for="cola-senador1-nome">Senador — 1ª vaga</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-senador1-nome" name="senador1-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-senador1-numero" name="senador1-numero" type="text" inputmode="numeric" maxlength="3" placeholder="000"></div></div></div></li>
+
+              <li class="voter-note__card"><div class="voter-note__order">4</div><div class="voter-note__content"><label class="voter-note__office" for="cola-senador2-nome">Senador — 2ª vaga</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-senador2-nome" name="senador2-nome" type="text" placeholder="Digite o nome"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-senador2-numero" name="senador2-numero" type="text" inputmode="numeric" maxlength="3" placeholder="000"></div></div></div></li>
+
+              <li class="voter-note__card"><div class="voter-note__order">5</div><div class="voter-note__content"><label class="voter-note__office" for="cola-governador-nome">Governador</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-governador-nome" name="governador-nome" type="text" placeholder="Nome do governador"></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-governador-numero" name="governador-numero" type="text" inputmode="numeric" maxlength="2" placeholder="00"></div></div></div></li>
+
+              <li class="voter-note__card voter-note__card--fixed"><div class="voter-note__order">6</div><div class="voter-note__content"><label class="voter-note__office" for="cola-presidente-nome">Presidente da República</label><div class="voter-note__fields"><div class="voter-note__field voter-note__field--name"><span>Nome</span><input id="cola-presidente-nome" name="presidente-nome" type="text" value="Lula" readonly></div><div class="voter-note__field voter-note__field--number"><span>Número</span><input id="cola-presidente-numero" name="presidente-numero" type="text" value="13" readonly></div></div></div><span class="voter-note__badge">Pré-preenchido</span></li>
+            </ol>
+          </form>
+
+          <div class="voter-note__bottom-action">
+            <button class="button voter-note__button voter-note__button--print" type="button" id="voter-note-print-bottom">
+              <i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir cola
+            </button>
+          </div>
+
+          <p class="voter-note__hint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> A impressão contém somente a cola eleitoral preenchida. Os campos pré-preenchidos de Fabiano Trompetista (13007) e Lula (13) são preservados ao usar “Limpar campos”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiais" class="materials section" aria-labelledby="materials-title" hidden>
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__label">Materiais</span>
+          <h2 id="materials-title">Leve essa mensagem adiante.</h2>
+          <p>Baixe materiais digitais e ajude a compartilhar a campanha.</p>
+        </header>
+        <div class="materials__grid">
+          <a class="material-card reveal" href="#"><i class="fa-solid fa-download"></i><div><h3>Santinho digital</h3><p>Imagem pronta para compartilhar.</p></div><span><i class="fa-solid fa-arrow-down"></i></span></a>
+          <a class="material-card reveal" href="#"><i class="fa-brands fa-whatsapp"></i><div><h3>Figurinhas</h3><p>Pacote para WhatsApp.</p></div><span><i class="fa-solid fa-arrow-down"></i></span></a>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+    
 
     <section id="participar" class="cta section" aria-labelledby="cta-title">
       <div class="container">

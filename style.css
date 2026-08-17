@@ -3925,3 +3925,134 @@ textarea:focus-visible{
   }
 }
 
+
+/* =========================================================
+   AGENDA — compromissos reais + destaque para agendas fixas
+   ========================================================= */
+.agenda-card--fixed{
+  position:relative;
+  background:var(--brown);
+  border-color:var(--brown);
+  box-shadow:7px 7px 0 var(--trumpet);
+}
+
+.agenda-card--fixed .agenda-card__content h3,
+.agenda-card--fixed .agenda-card__content p,
+.agenda-card--fixed .agenda-card__weekday{
+  color:var(--cream);
+}
+
+.agenda-card--fixed .agenda-card__date--fixed{
+  min-height:78px;
+  color:var(--brown);
+  background:var(--trumpet);
+  border-color:var(--cream);
+  box-shadow:5px 5px 0 var(--red);
+}
+
+.agenda-card__date--fixed i{
+  font-size:1.45rem;
+  margin-bottom:3px;
+}
+
+.agenda-card__fixed-label{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  margin-bottom:5px;
+  padding:4px 9px;
+  color:var(--brown);
+  background:var(--trumpet);
+  border:1px solid var(--cream);
+  font-size:.72rem;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.agenda-card--fixed .agenda-card__weekday{
+  display:block;
+  margin-top:4px;
+  font-weight:900;
+}
+
+@media(max-width:700px){
+  .agenda-card--fixed .agenda-card__date--fixed{
+    min-height:70px;
+  }
+}
+
+
+/* =========================================================
+   AGENDA DINÂMICA — Google Sheets / Apps Script
+   ========================================================= */
+.agenda__sync-status{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin:16px 0 0 !important;
+  padding:9px 11px;
+  color:var(--brown) !important;
+  background:rgba(255,166,64,.18);
+  border-left:4px solid var(--trumpet);
+  font-size:.78rem !important;
+  font-weight:700;
+  line-height:1.4;
+}
+
+.agenda__sync-status i{
+  margin-top:.2em;
+  color:var(--red);
+}
+
+.agenda__sync-status.is-synced{
+  background:rgba(22,140,73,.09);
+  border-left-color:#168c49;
+}
+
+.agenda__sync-status.is-synced i{
+  color:#168c49;
+}
+
+.agenda__sync-status.is-fallback{
+  background:rgba(255,166,64,.18);
+  border-left-color:var(--trumpet);
+}
+
+.agenda__empty{
+  display:grid;
+  justify-items:center;
+  gap:8px;
+  padding:34px 24px;
+  color:var(--brown);
+  background:var(--cream);
+  border:2px solid var(--brown);
+  box-shadow:7px 7px 0 var(--trumpet);
+  text-align:center;
+}
+
+.agenda__empty i{
+  color:var(--red);
+  font-size:2rem;
+}
+
+.agenda__empty strong{
+  font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  font-size:1.7rem;
+  font-weight:400;
+  text-transform:uppercase;
+}
+
+.agenda__empty span{
+  color:var(--muted);
+}
+
+.agenda-card__notes{
+  margin-top:7px !important;
+  padding-top:7px;
+  border-top:1px solid rgba(27,14,13,.16);
+  font-size:.78rem !important;
+}
+
