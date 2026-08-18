@@ -4119,3 +4119,304 @@ textarea:focus-visible{
   }
 }
 
+
+
+/* =========================================================
+   DESTAQUE — SUPERMERCADOS POPULARES
+   Proposta-âncora + chamadas recorrentes no site
+   ========================================================= */
+
+/* Faixa de campanha antes de Nossas Lutas */
+.popular-market-banner{
+  position:relative;
+  overflow:hidden;
+  padding:34px 0;
+  color:var(--cream);
+  background:
+    linear-gradient(100deg,rgba(83,20,20,.96),rgba(220,20,19,.94)),
+    repeating-linear-gradient(135deg,var(--red) 0 34px,var(--red-dark) 34px 68px);
+  border-top:5px solid var(--trumpet);
+  border-bottom:5px solid var(--brown);
+}
+.popular-market-banner::after{
+  content:"";position:absolute;right:-70px;top:-110px;width:300px;aspect-ratio:1;
+  background:url("assets/brand/simbolo.svg") center/contain no-repeat;opacity:.09;transform:rotate(10deg)
+}
+.popular-market-banner__inner{position:relative;z-index:1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:26px}
+.popular-market-banner__icon{display:grid;place-items:center;width:82px;height:82px;color:var(--brown);background:var(--trumpet);border:3px solid var(--brown);box-shadow:7px 7px 0 rgba(27,14,13,.55);font-size:2rem}
+.popular-market-banner__content{display:grid;gap:3px}.popular-market-banner__kicker{font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--trumpet)}
+.popular-market-banner__content strong{font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:clamp(2.2rem,4.5vw,4.2rem);font-weight:400;line-height:.92;text-transform:uppercase}
+.popular-market-banner__content p{max-width:760px;margin:6px 0 0;color:#f4e3c8;font-size:.95rem;line-height:1.45}
+.popular-market-banner__button{color:var(--brown)!important;background:var(--trumpet)!important;border:3px solid var(--brown)!important;box-shadow:7px 7px 0 var(--brown)!important;white-space:nowrap}
+
+/* Card 01 em largura total e com hierarquia própria */
+.proposal-card--featured{grid-column:1/-1;position:relative;overflow:hidden;display:block;padding:38px 40px 40px;color:var(--cream);background:linear-gradient(125deg,var(--red-dark) 0%,var(--red) 62%,#b90f10 100%);border:3px solid var(--brown);box-shadow:12px 12px 0 var(--trumpet)}
+.proposal-card--featured::after{content:"01";position:absolute;right:-18px;bottom:-48px;color:rgba(244,227,200,.09);font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:18rem;line-height:1;pointer-events:none}
+.proposal-card--featured:hover{transform:translate(-3px,-3px);border-color:var(--brown);box-shadow:16px 16px 0 var(--trumpet)}
+.proposal-featured__topline{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px}
+.proposal-featured__badge{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;color:var(--brown);background:var(--trumpet);border:2px solid var(--brown);font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-.6deg)}
+.proposal-card--featured .proposal-card__number{color:var(--trumpet);font-size:4.2rem;line-height:.8}
+.proposal-featured__layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:38px;align-items:center}
+.proposal-featured__main{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
+.proposal-card--featured .proposal-card__icon{width:76px;height:76px;color:var(--brown);background:var(--trumpet);border:3px solid var(--brown);font-size:1.8rem;box-shadow:6px 6px 0 rgba(27,14,13,.45)}
+.proposal-featured__eyebrow{display:block;margin-bottom:8px;color:var(--trumpet);font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.proposal-card--featured h3{margin:0;color:var(--cream);font-size:clamp(2.7rem,5.4vw,5.2rem);line-height:.88;text-transform:uppercase}
+.proposal-featured__metric{display:grid;justify-items:center;padding:18px 14px;color:var(--brown);background:var(--trumpet);border:3px solid var(--brown);box-shadow:8px 8px 0 var(--brown);transform:rotate(1.2deg);text-align:center}
+.proposal-featured__metric span{font-size:.76rem;font-weight:900;letter-spacing:.12em}.proposal-featured__metric strong{font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:5.4rem;font-weight:400;line-height:.8;color:var(--red-dark)}
+.proposal-featured__text{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:30px 0 0;padding-top:26px;border-top:1px solid rgba(244,227,200,.32)}
+.proposal-card--featured .proposal-featured__text p{margin:0;color:#f8ead4;line-height:1.55}
+.proposal-featured__pillars{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 24px}.proposal-featured__pillars span{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;color:var(--cream);border:1px solid rgba(244,227,200,.48);background:rgba(27,14,13,.18);font-size:.78rem;font-weight:800;text-transform:uppercase}.proposal-featured__pillars i{color:var(--trumpet)}
+.proposal-featured__cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:13px 18px;color:var(--brown);background:var(--trumpet);border:2px solid var(--brown);box-shadow:5px 5px 0 var(--brown);font-weight:900;text-decoration:none;text-transform:uppercase}.proposal-featured__cta:hover,.proposal-featured__cta:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--brown)}
+
+/* Lembrete antes do CTA final */
+.popular-market-reminder{padding:42px 0;color:var(--brown);background:var(--trumpet);border-top:4px solid var(--brown);border-bottom:4px solid var(--brown)}
+.popular-market-reminder__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 34px;align-items:center}.popular-market-reminder__kicker{grid-column:1/-1;font-size:.72rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--red-dark)}
+.popular-market-reminder__copy{display:flex;align-items:center;gap:18px}.popular-market-reminder__copy>i{display:grid;place-items:center;flex:0 0 64px;height:64px;color:var(--cream);background:var(--red);border:3px solid var(--brown);font-size:1.45rem}.popular-market-reminder__copy div{display:grid;gap:4px}.popular-market-reminder__copy strong{font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;font-size:clamp(2rem,3.8vw,3.6rem);font-weight:400;line-height:.95;text-transform:uppercase}.popular-market-reminder__copy span{font-size:.9rem;font-weight:600}.popular-market-reminder__inner>a{display:inline-flex;align-items:center;gap:9px;padding:12px 15px;color:var(--cream);background:var(--red-dark);border:2px solid var(--brown);box-shadow:5px 5px 0 var(--brown);font-weight:900;text-decoration:none;text-transform:uppercase;font-size:.82rem}
+
+@media(max-width:960px){
+  .popular-market-banner__inner{grid-template-columns:auto 1fr}.popular-market-banner__button{grid-column:1/-1;justify-self:start;margin-left:108px}
+  .proposal-featured__layout{grid-template-columns:1fr}.proposal-featured__metric{width:210px;justify-self:start;margin-left:98px}
+  .proposal-featured__text{grid-template-columns:1fr}
+  .popular-market-reminder__inner{grid-template-columns:1fr}.popular-market-reminder__kicker{grid-column:auto}.popular-market-reminder__inner>a{justify-self:start}
+}
+@media(max-width:700px){
+  .popular-market-banner{padding:28px 0}.popular-market-banner__inner{grid-template-columns:1fr;gap:18px}.popular-market-banner__icon{width:64px;height:64px;font-size:1.5rem}.popular-market-banner__button{grid-column:auto;margin-left:0;width:100%;white-space:normal}.popular-market-banner__content strong{font-size:clamp(2.5rem,13vw,4rem)}
+  .proposal-card--featured{padding:26px 20px 30px}.proposal-card--featured::after{font-size:11rem}.proposal-featured__topline{align-items:flex-start}.proposal-featured__badge{max-width:240px}.proposal-card--featured .proposal-card__number{font-size:3.2rem}.proposal-featured__main{grid-template-columns:1fr;gap:15px}.proposal-card--featured .proposal-card__icon{width:62px;height:62px;font-size:1.45rem}.proposal-card--featured h3{font-size:clamp(2.65rem,14vw,4.3rem)}.proposal-featured__metric{width:min(100%,210px);margin-left:0}.proposal-featured__text{margin-top:24px;padding-top:20px}.proposal-featured__pillars{display:grid}.proposal-featured__pillars span{width:100%}.proposal-featured__cta{width:100%;justify-content:center;text-align:center}
+  .popular-market-reminder{padding:34px 0}.popular-market-reminder__copy{align-items:flex-start}.popular-market-reminder__copy>i{flex-basis:52px;height:52px}.popular-market-reminder__copy strong{font-size:clamp(2.2rem,11vw,3.2rem)}.popular-market-reminder__inner>a{width:100%;justify-content:center;text-align:center}
+}
+
+/* =========================================================
+   SUPERMERCADOS POPULARES — representação estilizada do DF
+   Mapa conceitual dentro do card de destaque
+   ========================================================= */
+.proposal-featured__map-block{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);
+  gap:34px;
+  align-items:center;
+  margin-top:30px;
+  padding:28px;
+  border:2px solid rgba(244,227,200,.72);
+  background:rgba(27,14,13,.28);
+  box-shadow:7px 7px 0 rgba(27,14,13,.38);
+}
+.proposal-featured__map-copy{
+  min-width:0;
+}
+.proposal-featured__map-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  padding:6px 9px;
+  color:var(--brown);
+  background:var(--trumpet);
+  border:2px solid var(--brown);
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.proposal-featured__map-copy h4{
+  margin:0 0 12px;
+  color:var(--cream);
+  font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  font-size:clamp(2rem,3.7vw,3.45rem);
+  font-weight:400;
+  line-height:.92;
+  text-transform:uppercase;
+}
+.proposal-featured__map-copy>p{
+  margin:0;
+  color:#f6e7cf;
+  line-height:1.52;
+}
+.proposal-featured__map-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px 16px;
+  margin-top:18px;
+}
+.proposal-featured__map-legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--cream);
+  font-size:.78rem;
+  font-weight:800;
+}
+.proposal-featured__map-legend span:first-child i{
+  color:var(--trumpet);
+}
+.proposal-featured__map-legend span:last-child i{
+  color:rgba(255,166,64,.34);
+  text-shadow:0 0 0 2px var(--trumpet);
+  border-radius:50%;
+}
+.proposal-featured__map-copy small{
+  display:block;
+  margin-top:16px;
+  color:rgba(244,227,200,.72);
+  font-size:.72rem;
+  line-height:1.45;
+}
+
+.df-market-map{
+  position:relative;
+  width:min(100%,560px);
+  aspect-ratio:1.33/1;
+  justify-self:end;
+  overflow:hidden;
+  border:3px solid var(--brown);
+  background:
+    repeating-linear-gradient(135deg,rgba(220,20,19,.055) 0 16px,transparent 16px 32px),
+    var(--cream);
+  box-shadow:9px 9px 0 var(--trumpet);
+}
+.df-market-map::before{
+  content:"REDE DISTRIBUÍDA PELO DISTRITO FEDERAL";
+  position:absolute;
+  left:14px;
+  top:12px;
+  z-index:5;
+  color:var(--red-dark);
+  font-size:.60rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.df-market-map__shape{
+  position:absolute;
+  inset:13% 10% 11% 10%;
+  clip-path:polygon(8% 16%,21% 7%,43% 4%,65% 8%,87% 18%,95% 38%,90% 59%,78% 79%,57% 92%,33% 91%,15% 78%,6% 58%,4% 36%);
+  background:
+    linear-gradient(135deg,rgba(255,166,64,.25),rgba(220,20,19,.12)),
+    #f8e9d1;
+  border:0;
+  filter:drop-shadow(0 0 0 var(--brown));
+}
+.df-market-map__shape::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  clip-path:inherit;
+  border:3px solid var(--brown);
+}
+.df-market-map__center{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  color:rgba(83,20,20,.13);
+  font-family:"Sequia Grande","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  font-size:clamp(5rem,10vw,8rem);
+  line-height:1;
+  pointer-events:none;
+}
+.df-market-map__hotspot{
+  position:absolute;
+  z-index:1;
+  border:2px dashed rgba(220,20,19,.55);
+  border-radius:50%;
+  background:rgba(255,166,64,.20);
+  box-shadow:0 0 0 8px rgba(255,166,64,.06);
+}
+.df-market-map__hotspot--west{left:12%;top:43%;width:30%;height:35%}
+.df-market-map__hotspot--south{left:37%;top:64%;width:29%;height:25%}
+.df-market-map__hotspot--east{right:11%;top:42%;width:25%;height:30%}
+
+.df-market-map__cart{
+  position:absolute;
+  z-index:4;
+  display:grid;
+  place-items:center;
+  width:31px;
+  height:31px;
+  border:2px solid var(--brown);
+  color:var(--brown);
+  background:var(--trumpet);
+  box-shadow:3px 3px 0 var(--red);
+  transform:rotate(-2deg);
+  font-size:.82rem;
+}
+.df-market-map__cart:nth-of-type(even){transform:rotate(2deg)}
+.df-market-map__cart--1{left:16%;top:50%}
+.df-market-map__cart--2{left:23%;top:61%}
+.df-market-map__cart--3{left:31%;top:49%}
+.df-market-map__cart--4{left:29%;top:70%}
+.df-market-map__cart--5{left:39%;top:74%}
+.df-market-map__cart--6{left:49%;top:70%}
+.df-market-map__cart--7{left:58%;top:77%}
+.df-market-map__cart--8{right:24%;top:55%}
+.df-market-map__cart--9{right:15%;top:49%}
+.df-market-map__cart--10{right:20%;top:66%}
+.df-market-map__cart--11{left:43%;top:43%}
+.df-market-map__cart--12{left:52%;top:29%}
+.df-market-map__cart--13{left:66%;top:31%}
+.df-market-map__cart--14{left:35%;top:24%}
+
+.df-market-map__label{
+  position:absolute;
+  z-index:3;
+  padding:3px 5px;
+  color:var(--cream);
+  background:var(--red-dark);
+  border:1px solid var(--cream);
+  font-size:.53rem;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+.df-market-map__label--west{left:10%;bottom:9%}
+.df-market-map__label--south{left:45%;bottom:5%}
+.df-market-map__label--east{right:9%;bottom:17%}
+
+@media(max-width:960px){
+  .proposal-featured__map-block{
+    grid-template-columns:1fr;
+  }
+  .df-market-map{
+    width:min(100%,620px);
+    justify-self:center;
+  }
+}
+
+@media(max-width:700px){
+  .proposal-featured__map-block{
+    margin-top:24px;
+    padding:18px 14px 20px;
+    gap:22px;
+    box-shadow:5px 5px 0 rgba(27,14,13,.38);
+  }
+  .proposal-featured__map-copy h4{
+    font-size:clamp(2.25rem,12vw,3.35rem);
+  }
+  .proposal-featured__map-legend{
+    display:grid;
+  }
+  .df-market-map{
+    aspect-ratio:1/1.02;
+    box-shadow:6px 6px 0 var(--trumpet);
+  }
+  .df-market-map::before{
+    left:10px;
+    top:9px;
+    font-size:.50rem;
+  }
+  .df-market-map__shape{
+    inset:14% 5% 10%;
+  }
+  .df-market-map__cart{
+    width:27px;
+    height:27px;
+    font-size:.72rem;
+    box-shadow:2px 2px 0 var(--red);
+  }
+  .df-market-map__label{
+    font-size:.46rem;
+  }
+}
+
