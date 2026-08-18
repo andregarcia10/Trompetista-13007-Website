@@ -4514,9 +4514,9 @@ textarea:focus-visible{
 }
 
 
-/* Carrinhos adicionais — RAs solicitadas */
-.df-market-map__cart--brazlandia{left:7%;top:38%}
-.df-market-map__cart--sobradinho2{left:45%;top:28%}
-.df-market-map__cart--fercal{left:49%;top:18%}
-.df-market-map__cart--planaltina{right:13%;top:22%}
+/* Carrinhos adicionais — posições corrigidas sobre o mapa real do DF */
+.df-market-map__cart--brazlandia{left:10.5%;top:42%}
+.df-market-map__cart--fercal{left:47.5%;top:24.5%}
+.df-market-map__cart--sobradinho2{left:53.5%;top:31.5%}
+.df-market-map__cart--gama{left:34%;top:82%}
 
