@@ -4420,3 +4420,103 @@ textarea:focus-visible{
   }
 }
 
+
+/* =========================================================
+   SUPERMERCADOS POPULARES — MAPA REAL DO DISTRITO FEDERAL
+   Substitui o contorno conceitual anterior pela base cartográfica real.
+   ========================================================= */
+.df-market-map{
+  aspect-ratio:890/545;
+  background:var(--cream);
+}
+
+.df-market-map__real{
+  position:absolute;
+  inset:38px 14px 24px;
+  z-index:1;
+  width:calc(100% - 28px);
+  height:calc(100% - 62px);
+  object-fit:contain;
+  object-position:center;
+  opacity:.48;
+  filter:grayscale(1) sepia(.18) contrast(1.05);
+  mix-blend-mode:multiply;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* O antigo polígono virtual deixa de ser usado. */
+.df-market-map__shape,
+.df-market-map__center{
+  display:none!important;
+}
+
+/* Hotspots e carrinhos ficam sobre a geografia real. */
+.df-market-map__hotspot{
+  z-index:2;
+}
+.df-market-map__cart{
+  z-index:4;
+}
+.df-market-map__label{
+  z-index:5;
+}
+
+.df-market-map__source{
+  position:absolute;
+  z-index:6;
+  right:8px;
+  bottom:5px;
+  padding:2px 5px;
+  color:rgba(27,14,13,.64);
+  background:rgba(244,227,200,.82);
+  font-size:.46rem;
+  font-weight:700;
+  line-height:1.2;
+}
+
+/* Reposicionamento dos marcadores sobre a silhueta real do DF. */
+.df-market-map__hotspot--west{left:5%;top:48%;width:34%;height:37%}
+.df-market-map__hotspot--south{left:24%;top:67%;width:34%;height:26%}
+.df-market-map__hotspot--east{right:2%;top:46%;width:35%;height:40%}
+
+.df-market-map__cart--1{left:9%;top:54%}
+.df-market-map__cart--2{left:16%;top:65%}
+.df-market-map__cart--3{left:24%;top:56%}
+.df-market-map__cart--4{left:23%;top:73%}
+.df-market-map__cart--5{left:32%;top:79%}
+.df-market-map__cart--6{left:41%;top:76%}
+.df-market-map__cart--7{left:51%;top:82%}
+.df-market-map__cart--8{right:28%;top:59%}
+.df-market-map__cart--9{right:16%;top:55%}
+.df-market-map__cart--10{right:20%;top:73%}
+.df-market-map__cart--11{left:43%;top:52%}
+.df-market-map__cart--12{left:52%;top:34%}
+.df-market-map__cart--13{left:66%;top:32%}
+.df-market-map__cart--14{left:35%;top:35%}
+
+.df-market-map__label--west{left:7%;bottom:7%}
+.df-market-map__label--south{left:39%;bottom:4%}
+.df-market-map__label--east{right:7%;bottom:10%}
+
+@media(max-width:700px){
+  .df-market-map{
+    aspect-ratio:890/545;
+  }
+  .df-market-map__real{
+    inset:31px 8px 20px;
+    width:calc(100% - 16px);
+    height:calc(100% - 51px);
+  }
+  .df-market-map__source{
+    font-size:.40rem;
+  }
+}
+
+
+/* Carrinhos adicionais — RAs solicitadas */
+.df-market-map__cart--brazlandia{left:7%;top:38%}
+.df-market-map__cart--sobradinho2{left:45%;top:28%}
+.df-market-map__cart--fercal{left:49%;top:18%}
+.df-market-map__cart--planaltina{right:13%;top:22%}
+
